@@ -1,0 +1,70 @@
+    Finished dev [unoptimized + debuginfo] target(s) in 0.02s
+    Checking peudo_write_ret v0.1.0 (/home/gww-parity/gitlab/gww-parity/dylint_template_tests_3rd/inputs/pseudo_write_and_err_00)
+warning: check_fn match! (fn_kind: "Fn", node_id: NodeId(69)
+  --> src/lib.rs:45:5
+   |
+45 | /     fn into(self) -> Result<RawOrigin<i32>, OriginImpl> {
+46 | |         todo!()
+47 | |     }
+   | |_____^
+   |
+   = note: `#[warn(fn_visitor_print_deb)]` on by default
+
+warning: check_fn match! (fn_kind: "Fn", node_id: NodeId(91)
+  --> src/lib.rs:50:5
+   |
+50 | /     fn from(_: RawOrigin<i32>) -> Self {
+51 | |         todo!()
+52 | |     }
+   | |_____^
+
+warning: check_fn match! (fn_kind: "Fn", node_id: NodeId(175)
+  --> src/lib.rs:74:5
+   |
+74 |     fn eq(&self, _other: &Self) -> bool { true }
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: check_fn match! (fn_kind: "Fn", node_id: NodeId(209)
+  --> src/lib.rs:91:5
+   |
+91 |     fn put(_b: bool) { }
+   |     ^^^^^^^^^^^^^^^^^^^^
+
+warning: check_fn match! (fn_kind: "Fn", node_id: NodeId(251)
+   --> src/lib.rs:111:1
+    |
+111 | / fn ensure_root<T: Config>(_origin: OriginFor<T>) -> DispatchResult {
+112 | |     Ok(())
+113 | | }
+    | |_^
+
+warning: check_fn match! (fn_kind: "Fn", node_id: NodeId(268)
+   --> src/lib.rs:116:1
+    |
+116 | / pub fn xyz<T: Config>(origin: OriginFor<T>) -> DispatchResult {
+117 | |   XYZ::<T>::put(true);
+118 | |   ensure_root::<T>(origin)?;
+119 | |   Ok(())
+120 | |   // this pattern is wrong because we could both change storage and return an error
+121 | | }
+    | |_^
+
+warning: 6 warnings emitted
+
+warning: check_fn match! (fn_kind: "Fn", node_id: NodeId(18)
+  --> src/main.rs:4:1
+   |
+4  | / fn main() -> Result<(), Box<dyn Error>> {
+5  | |     let origin = OriginImpl{};
+6  | |     match xyz::<ConfigImpl>(origin) {
+7  | |         Ok(_) => Ok(()),
+...  |
+12 | |     }
+13 | | }
+   | |_^
+   |
+   = note: `#[warn(fn_visitor_print_deb)]` on by default
+
+warning: 1 warning emitted
+
+    Finished dev [unoptimized + debuginfo] target(s) in 0.50s

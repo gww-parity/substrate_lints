@@ -1,0 +1,29 @@
+    Finished dev [unoptimized + debuginfo] target(s) in 0.03s
+    Checking peudo_write_ret v0.1.0 (/home/gww-parity/gitlab/gww-parity/dylint_template_tests_3rd/inputs/pseudo_write_and_err_00)
+warning: check_fn match! (fn_kind: "Fn", node_id: NodeId(268) visitor.found_return=true write=`Some(src/lib.rs:117:3: 117:22 (#0))` err=`Some(src/lib.rs:118:3: 118:28 (#0))`
+   --> src/lib.rs:116:1
+    |
+116 | / pub fn xyz_should_match<T: Config>(origin: OriginFor<T>) -> DispatchResult {
+117 | |   XYZ::<T>::put(true);
+118 | |   ensure_root::<T>(origin)?;
+119 | |   Ok(())
+120 | |   // this pattern is wrong because we could both change storage and return an error
+121 | | }
+    | |_^
+    |
+    = note: `#[warn(fn_visitor_print_deb)]` on by default
+
+warning: check_fn match! (fn_kind: "Fn", node_id: NodeId(300) visitor.found_return=true write=`Some(src/lib.rs:125:5: 125:24 (#0))` err=`Some(src/lib.rs:126:14: 126:39 (#0))`
+   --> src/lib.rs:124:1
+    |
+124 | / pub fn xyz_should_not_match<T: Config>(origin: OriginFor<T>) -> DispatchResult {
+125 | |     XYZ::<T>::put(true);
+126 | |   let _ret = ensure_root::<T>(origin)?;
+127 | |   Ok(())
+128 | |   // this pattern is wrong because we could both change storage and return an error
+129 | | }
+    | |_^
+
+warning: 2 warnings emitted
+
+    Finished dev [unoptimized + debuginfo] target(s) in 0.50s

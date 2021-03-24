@@ -1,0 +1,18 @@
+[package]
+name = "write_and_error"
+version = "0.1.0"
+authors = ["authors go here"]
+description = "decription goes here"
+edition = "2018"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+clippy_utils = { git = "https://github.com/rust-lang/rust-clippy", rev = "ae72f1adb9cbf16141f880e9e955723a5fdabf00"}
+dylint_linting = "0.1.0"
+if_chain = "1.0.1"
+
+[dev-dependencies]
+dylint_testing = "0.1.0"
