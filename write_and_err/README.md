@@ -24,7 +24,15 @@ I constructed AST tree in file [`inputs/pseudo_write_and_err_00/src/lib.rs`](inp
 to mimmic AST structures we try to catch.
 It is build based on snipppet provided on https://github.com/paritytech/substrate/issues/8962#issuecomment-851923189 .
 
-# how to run it
+# fast test with Docker
+
+With [Dockerfile](Dockerfile) with preconfigured commands for Archlinux:
+
+```
+docker build .
+```
+
+# How to run it
 
 ## pre-requisites
 
