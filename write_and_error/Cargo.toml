@@ -5,6 +5,7 @@ authors = ["authors go here"]
 description = "decription goes here"
 edition = "2018"
 publish = false
+keywords = ["lint", "dylint", "substrate", "polkadot", "kusama"]
 
 [lib]
 crate-type = ["cdylib"]
