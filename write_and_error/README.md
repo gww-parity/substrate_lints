@@ -1,4 +1,4 @@
-# write_and_err
+# write_and_error
 
 Lint for Substrate projects detecting if there is attempt to throw error after writing to storage.
 

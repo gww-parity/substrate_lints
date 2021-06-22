@@ -7,5 +7,5 @@ rustup component add rustfmt
 RUN echo Install repo and prerequisits && \
 cargo install --version "0.1.2" cargo-dylint dylint-link && \
 git clone https://github.com/gww-parity/substrate_lints.git && \
-cd substrate_lints/write_and_err && \
+cd substrate_lints/write_and_error && \
 make

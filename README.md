@@ -1,8 +1,8 @@
 Currently one lint:
 
-* [write_and_err](write_and_err) , check it's [README.md](write_and_err/README.md)
+* [write_and_error](write_and_error) , check it's [README.md](write_and_error/README.md)
 
-[License](write_and_err/LICENSE)
+[License](write_and_error/LICENSE)
 
 Lints are made to be used with [Dylint] framework.
 As this framework require lints to be compiled for each version of toolchain,
