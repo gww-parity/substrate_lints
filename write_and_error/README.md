@@ -1,3 +1,7 @@
+# Project status
+
+Project got iceboxed. If you like it, please raise interest, it may help to prioritize it. PRs always welcome ;).
+
 # write_and_error
 
 Lint for Substrate projects detecting if there is attempt to throw error after writing to storage.
