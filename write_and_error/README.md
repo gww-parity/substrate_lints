@@ -44,6 +44,10 @@ docker build .
 cargo install cargo-dylint dylint-link          
 ```
 
+## Helpful dylints_updater
+
+This tool may help you in recompiling and updating your lints: https://github.com/gww-parity/dylints_updater
+
 ## Usage
 
 ```
